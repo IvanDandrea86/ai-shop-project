@@ -7,7 +7,7 @@ $confirm_password_err="";
 $password_err="";
 $email_err="";
 $error=array();
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if(isset($_POST["create"]) ) {
 
   //Control Input
     //validate Username

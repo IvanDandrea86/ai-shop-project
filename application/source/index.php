@@ -19,7 +19,8 @@
 <?php
 include "./components/header.html";
 include "./util/create.php";
-include "./components/userLogin.html";
+include "./util/login.php";
+include "./components/userLogin.php";
 include "./components/hero.html";
 ?>
 <div class="divider"></div>

@@ -10,12 +10,16 @@
             <div class="modal-body">
                 <form action="" method="post">
                     <div class="form-group">
-                        <label for="Username" class="col-form-label">Username/Email:</label>
-                        <input type="text" name="Username" class="form-control" id="username">
+                    <label for="Username" class="col-form-label">Username:</label>
+                      <input type="text" name="Username" class="form-control <?php echo (!empty($username_login_err)) ? 'is-invalid' : ''; ?>" id="username_login">
+                      <span class="invalid-feedback"><?php echo $username_login_err; ?></span>
+                   
                     </div>
                     <div class="form-group">
-                        <label for="password" class="col-form-label">Password:</label>
-                        <input type="password" class="form-control" name="Password" id="password"></input>
+                    <label for="password" class="col-form-label">Password:</label>
+                        <input type="password" class="form-control <?php echo (!empty($password_login_err)) ? 'is-invalid' : ''; ?>" name="Password" id="password_login"></input>
+                        <span class="invalid-feedback"><?php echo $password_login_err; ?></span>
+                      
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="link me-5">Forgot your password?</a>
