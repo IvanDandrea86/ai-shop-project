@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include "config.php";
 $username_login_err="";
 $password_login_err="";
@@ -23,24 +24,48 @@ if(isset($_POST["login"])){
       }
 }
 //Validate Pass
-if(empty(trim($_POST["Password"]))){
+  if(empty(trim($_POST["Password"]))){
     $password_login_err = "Please enter a password."; 
     array_push($login_error,$password_login_err);    
   } elseif(strlen(trim($_POST["Password"])) < 6){
     $password_err = "Password must have atleast 6 characters.";
     array_push($login_error,$password_login_err);
   }
-  if(count($login_error)>1){
+
+if(count($login_error)>0){
     ?>
     <script>
         $(window).ready(function(){
         $('#login_modal').modal('show'); 
         })
         </script>
+      
 <?php
   }else{
       //Check if User has good password then start seession
+      $sql = "SELECT * FROM Users WHERE Username='".$_POST["Username"]."' and Password='".$_POST["Password"]."'";
+      $result=$conn->query($sql);
+      if($result->num_rows==0){
+        $password_login_err="Wrong password!";
+        array_push($login_error,$username_login_err);
+        ?>
+        <script>
+            $(window).ready(function(){
+            $('#login_modal').modal('show'); 
+            })
+            </script>
+          
+    <?php
+      }
+      else{
+       
+        $_SESSION['Username']=$_POST["Username"];
+        echo($_SESSION['Username']);
+        header("location: ./util/welcome.php");
+        
+      }
 
 }
 }
+ob_end_flush();
 ?>

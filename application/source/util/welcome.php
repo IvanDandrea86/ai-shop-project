@@ -1,8 +1,3 @@
-<?php
-session_start();
-include "./util/login.php";
-include "./util/create.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +16,15 @@ include "./util/create.php";
 <body>
 
 <?php
-include "./components/header.html";
-include "./components/userLogin.php";
-include "./components/hero.html";
+include "../components/headerSession.php";
+include "../components/hero.html";
 ?>
 <div class="divider"></div>
+<?php
+echo($_SESSION["Username"]);
+?>
 <?php 
-include "./components/footer.html";
+include "../components/footer.html";
 ?>
 
  
@@ -38,3 +35,7 @@ include "./components/footer.html";
 	
 </body>
 </html>
+
+
+
+
