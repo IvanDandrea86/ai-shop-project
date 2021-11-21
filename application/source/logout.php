@@ -11,11 +11,10 @@ $mode=$_SESSION['auth']." disconnected ";
           </script> 
           <?php
 session_start();
-ob_start();
+// ob_start();
 unset($_SESSION['auth']);
 session_destroy();
-// header('location:index.php');
-ob_end_flush();
+// ob_end_flush();
 
 }
 

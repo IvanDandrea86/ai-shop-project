@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 ?>
 
 
@@ -9,14 +7,13 @@ session_start();
 <!-- Header     -->
 
 <?php
-
-include ("header.php");  
+ 
 include ('login.php');
 include ("logout.php");
 include ('create.php');
 include ('delete.php');
+include ("header.php"); 
 ?>
-<body>
 <?php 
 
 
@@ -32,7 +29,7 @@ else { include "catalog.php";
 <?php 
 include "footer.html";
 include "popupSucces.php";
-include "popupError.php";
+include "popUpError.php";
 
 ?>
 

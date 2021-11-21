@@ -4,7 +4,6 @@ include "config.php";
 
 
 if(isset($_POST["login"])){
-  ob_start();
   $username_login_err="";
   $password_login_err="";
   $login_error=array();
@@ -63,14 +62,11 @@ if(count($login_error)>0){
       else{
         
         $_SESSION['auth']=$_POST["Username"];
-        header("Location: index.php");
    
       }
 
 }
 
 }
-
 include 'userLogin.php';
-ob_end_flush();
 ?>

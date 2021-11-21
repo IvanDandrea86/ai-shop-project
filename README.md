@@ -10,4 +10,16 @@ A personal project about an AI shop
 - Docker
 - SQL
 
-[WORK IN PROGRES...]
+## Features
+---
+- Registration
+- Login
+- Input sanitation
+- Password salting and hashing
+- Personal Settings [WORK IN PROGRES...]
+- Admin Dashboard (Add Products,manage users account)
+- Recovery Password [WORK IN PROGRES...]
+- Confermation Email [WORK IN PROGRES...]
+- Dynamique catalogue [WORK IN PROGRES...]
+- Shopping cart [WORK IN PROGRES...]
+

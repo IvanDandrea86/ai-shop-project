@@ -20,6 +20,7 @@
   <link rel="icon" type="image/x-icon" href="./media/favicon.svg">
   <title>AI Shop</title>
 </head>
+<body>
 <header class="p-3 bg-dark text-white">
 
     <div class="container">
