@@ -38,5 +38,5 @@ if (isset($row["PersonID"])){
         
         }
  }
- include "./updateUserModal.html";
+ include "updateUserModal.php";
 } 

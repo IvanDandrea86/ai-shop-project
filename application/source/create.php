@@ -25,7 +25,6 @@ if(isset($_POST["create"]) ) {
       $username_err="Username alredy exist";
       array_push($error,$username_err);
     }
-
     }
     // Validate password
       if(empty(trim($_POST["Password"]))){
@@ -35,7 +34,6 @@ if(isset($_POST["create"]) ) {
         $password_err = "Password must have atleast 6 characters.";
         array_push($error,$password_err);
       }
-  
   // Validate confirm password
     if(empty(trim($_POST["confirm_Password"]))){
         $confirm_password_err = "Please confirm password.";
@@ -62,7 +60,7 @@ if(isset($_POST["create"]) ) {
 }
     
 // check if are errors
-if(count($error)>1){
+if(count($error)>0){
       ?>
       <script>
           $(window).ready(function(){
@@ -71,8 +69,6 @@ if(count($error)>1){
           </script>
 <?php
     }else{
-
-   
       $username= $_POST["Username"];
       $email= $_POST["Email"];
       $password= $_POST["Password"];
@@ -88,8 +84,8 @@ if(count($error)>1){
           })
           </script>
         <?php
-        $mode="added";
-        include "./components/popupSucces.php";
+        $mode="New user added";
+        
         //  echo"New user added succesfully";
       }
       else{
@@ -98,10 +94,7 @@ if(count($error)>1){
       $conn->close();
   }
 }
-
-include './components/newUserModal.php';
-
-
+include 'newUserModal.php';
 ?>
   
 

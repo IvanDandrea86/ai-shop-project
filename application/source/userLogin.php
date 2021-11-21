@@ -23,8 +23,10 @@
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="link me-5">Forgot your password?</a>
+                        <form action="" method="post">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" value="login" name="login">Login</button>
+                        <button type="submit" class="btn btn-primary" value="login" name="login" >Login</button>
+                        </form>
                     </div>
                 </form>
             </div>

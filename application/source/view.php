@@ -1,11 +1,13 @@
 <?php
 include 'config.php';
-$sql ="SELECT *FROM User";
+ob_start();
+$sql ="SELECT *FROM Users";
 $result =$conn->query($sql);
 ?>
-    <div class="container">
+    <div class="container text-center">
         <h2>Users List</h2>
-    </div>
+   
+    <div class="col ">
     <table class="table">
         <thead>
             <tr>
@@ -19,9 +21,6 @@ $result =$conn->query($sql);
         <tbody>
             <?php
                 if($result->num_rows>0){
-                    
-                    
-                
                     while($row= $result->fetch_assoc()){
                      ?>
                      <tr>
@@ -31,30 +30,24 @@ $result =$conn->query($sql);
                       <td><?php echo $row['FirstName'];?></td>
                       <td><?php echo $row['LastName'];?></td>  
                       <td>
-                        <a  class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#update" 
-                        href="view.php?PersonID=<?php echo $row["PersonID"];?>">Update</a>
             
-                        <!-- <a href="update.php?PersonID=
-                     
-                        " class="btn btn-info">Edit</a> -->
+                         <a href="update.php?PersonID=
+                        <?php echo $row["PersonID"];?>
+                        " class="btn btn-info">Edit</a> 
                         &nbsp;
-                        <a href="delete.php?PersonID=<?php echo $row["PersonID"];?>" class="btn btn-danger">Delete</a>
+                        <a href="index.php?delete=<?php echo $row["PersonID"];?>" class="btn btn-danger">Delete</a>
                     </td>
                     </tr>    
                    <?php }
                
-                }
-                
-               
-                
-            ?>
+                }    
+                ob_end_flush();
+           ?>
         </tbody>
     </table>
-  
- 
+    </div>
+    </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 
-	
 </body>
 </html>

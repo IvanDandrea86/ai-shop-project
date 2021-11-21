@@ -1,20 +1,27 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script
+    <!-- ScriptJS -->
+    <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" 
+  integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   <link rel="icon" type="image/x-icon" href="./media/favicon.svg">
   <title>AI Shop</title>
 </head>
-<body>
 <header class="p-3 bg-dark text-white">
+
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center me-5 mb-2 mb-lg-0 text-white text-decoration-none">
@@ -36,16 +43,24 @@
             </form>
 
             <div class="text-end">
-            <?php if (isset($_SESSION['logged-in'])) : ?> 
-                <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="logout.php">Log Out</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="account.php">Profils</a>
-                            </li>   
+            <?php if (isset($_SESSION['auth'])) : ?> 
+                <form action="" method="post">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    
+                        <p class="nav-link  mb-0 text-white"><i class="bi bi-house-door"></i> Welcome <?php echo($_SESSION['auth']);?></p>
+                    
+                    <li>
+                        <a class="nav-link  text-white" aria-current="page" href="#"><i class="bi bi-gear"></i> Settings </a>
+                    </li>  
+                    <li> 
+                        <button type="submit" class="btn btn-secondary  text-white" value="logout" name="logout"><i class="bi bi-arrow-right-square"></i> Log out </button>  
+                    </li>
+                </ul> 
+                </form>
+     
             <?php else : ?>
                 <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#login_modal">Login</button>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#signup">Sign-up</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signup">Sign-up</button>
             <?php endif; ?>
             </div>
         </div>

@@ -8,7 +8,7 @@
    </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                <form action="" method="post">
                     <div class="form-group">
                         <label for="Username" class="col-form-label">Username:</label>
                         <input type="text" name="Username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" id="username">
@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" name="Email" id="email"></input>
+                        <input type="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" name="Email" id="email"></input>
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
                     </div>
                     <div class="form-group">

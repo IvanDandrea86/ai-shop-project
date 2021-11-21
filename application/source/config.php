@@ -1,5 +1,3 @@
-
-
 <?php
 // DB Connection	
 	$servername = getenv("MYSQL_HOST") ;

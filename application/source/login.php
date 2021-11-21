@@ -1,10 +1,14 @@
 <?php
-ob_start();
 include "config.php";
-$username_login_err="";
-$password_login_err="";
-$login_error=array();
+
+
+
 if(isset($_POST["login"])){
+  ob_start();
+  $username_login_err="";
+  $password_login_err="";
+  $login_error=array();
+  
     $user=$_POST["Username"];
     $pass=$_POST["Password"];
     //Control
@@ -48,24 +52,25 @@ if(count($login_error)>0){
       if($result->num_rows==0){
         $password_login_err="Wrong password!";
         array_push($login_error,$username_login_err);
-        ?>
-        <script>
+         ?>
+            <script> 
             $(window).ready(function(){
-            $('#login_modal').modal('show'); 
-            })
-            </script>
-          
-    <?php
+             $('#login_modal').modal('show'); 
+            }) 
+            </script>   
+     <?php
       }
       else{
-       
-        $_SESSION['Username']=$_POST["Username"];
-        echo($_SESSION['Username']);
-        header("location: ./util/welcome.php");
         
+        $_SESSION['auth']=$_POST["Username"];
+        header("Location: index.php");
+   
       }
 
 }
+
 }
+
+include 'userLogin.php';
 ob_end_flush();
 ?>

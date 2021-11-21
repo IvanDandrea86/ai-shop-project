@@ -1,19 +1,18 @@
 <?php
     include "config.php";
-
-    if(isset($_GET["PersonID"])){
-        $id=$_GET["PersonID"];
+    if(isset($_GET["delete"])){
+        $id=$_GET["delete"];
     
         $sql =" DELETE FROM Users WHERE PersonID='$id'";
         $result=$conn->query($sql);
 
         if($result==TRUE){
-            $mode="deleted";
-            include './components/popupSucces.php';
+            $mode="User deleted";
+            include 'popupSucces.php';
             ?>
             <script>
             $(window).ready(function(){
-            $('#staticBackdrop').modal('show'); 
+            $('#popUpSucces').modal('show'); 
             })
          </script>
 <?php
