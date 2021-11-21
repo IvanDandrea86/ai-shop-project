@@ -1,10 +1,7 @@
 
 
-<body>
 <?php
 include "./components/header.html";
-include "./util/create.php";
-include "./util/login.php";
 include "./components/userLogin.php";
 include "./components/hero.html";
 ?>
